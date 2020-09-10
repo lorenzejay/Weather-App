@@ -1,7 +1,10 @@
 const request = require("request");
+require("dotenv").config();
+
+const api_key = process.env.API_KEY;
 
 const callWeather = (location, callback) => {
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=a0402304552640f488fb09a34f262bd5&units=imperial`;
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}&units=imperial`;
 
   request({ url, json: true }, (error, response) => {
     if (error) {
